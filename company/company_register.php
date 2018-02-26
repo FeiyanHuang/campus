@@ -1,0 +1,19 @@
+<?
+header('Access-Control-Allow-Origin:*');
+header('Content-Type:*');
+$company_name=$_GET['company_name'];
+$password=$_GET['password'];
+$boss=$_GET['boss'];
+$tel=$_GET['tel'];
+$email=$_GET['email'];
+$address=$_GET['address'];
+$type=$_GET['type'];
+$content=$_GET['content'];
+require('../conn.php');
+$sql="insert into companys(company_name,password,boss,tel,email,address,type,content) values(?,?,?,?,?,?,?,?)";
+$stmt=$db->prepare($sql);
+$stmt->bindParam(1,$company_name);$stmt->bindParam(2,$password);
+$stmt->bindParam(3,$boss);$stmt->bindParam(4,$tel);$stmt->bindParam(5,$email);
+$stmt->bindParam(6,$address);$stmt->bindParam(7,$type);$stmt->bindParam(8,$content);
+$stmt->execute();
+?>

@@ -1,20 +1,10 @@
 <?
-$dsn="mysql:host=localhost;dbname=campus_recruitment";
+//使用PHP5及以上提供的PDO接口
+$dsn="mysql:host=localhost;dbname=campus";
 $db=new PDO($dsn,'root','root123456');
-$db->query('set names gb2312');
-/*
-�����Ƿ��������ݿ⣺
-$result=$db->query('select *from lyb');
-$result->setFetchMode(PDO::FETCH_ASSOC);
-print_r($row=$result->fetch(2)); */
+$db->query('set names utf-8');
+// 原始的连接数据库的代码
+// $conn=mysql_connect("localhost","root","root123456");//连接数据库服务器
+// mysql_query("set names 'utf-8'");//设置字符集
+// mysql_select_db("guestbook",$conn);//选择数据库
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>У԰��Ƹ</title>
-</head>
-
-<body>
-</body>
-</html>
