@@ -11,7 +11,7 @@
  Target Server Version : 50717
  File Encoding         : 65001
 
- Date: 26/02/2018 18:24:25
+ Date: 27/02/2018 21:33:41
 */
 
 SET NAMES utf8mb4;
@@ -49,6 +49,7 @@ CREATE TABLE `companys`  (
   `address` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `type` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `content` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `disable` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`, `company_name`) USING BTREE,
   INDEX `company_name`(`company_name`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
@@ -56,11 +57,11 @@ CREATE TABLE `companys`  (
 -- ----------------------------
 -- Records of companys
 -- ----------------------------
-INSERT INTO `companys` VALUES (0, '公司A', '123', '黄飞燕', '17858952904', '515978951@qq.com', '浙江湖州', '科技有限公司', '公司简介');
-INSERT INTO `companys` VALUES (1, '公司B', '123', '黄飞燕2', '17858952904', '515978951@qq.com', '浙江湖州', '科技有限公司', '公司简介2');
-INSERT INTO `companys` VALUES (2, '公司c', '123', '黄飞燕3', '17858952904', '515978951@qq.com', '浙江湖州', '科技有限公司', '公司简介3');
-INSERT INTO `companys` VALUES (4, '公司D', '123', '黄飞燕4', '17858952904', '515978951@qq.com', '浙江湖州', '科技有限公司4', '公司简介4');
-INSERT INTO `companys` VALUES (5, '公司F', '123', '黄飞燕F', '17858952904', '515978951@qq.com', '浙江湖州', '科技有限公司', '公司简介');
+INSERT INTO `companys` VALUES (0, '公司A', '123', '黄飞燕', '17858952904', '515978951@qq.com', '浙江湖州', '科技有限公司', '公司简介', 0);
+INSERT INTO `companys` VALUES (1, '公司B', '123', '黄飞燕2', '17858952904', '515978951@qq.com', '浙江湖州', '科技有限公司', '公司简介2', 0);
+INSERT INTO `companys` VALUES (2, '公司c', '123', '黄飞燕3', '17858952904', '515978951@qq.com', '浙江湖州', '科技有限公司', '公司简介3', 1);
+INSERT INTO `companys` VALUES (4, '公司D', '123', '黄飞燕4', '17858952904', '515978951@qq.com', '浙江湖州', '科技有限公司4', '公司简介4', 1);
+INSERT INTO `companys` VALUES (5, '公司F', '123', '黄飞燕F', '17858952904', '515978951@qq.com', '浙江湖州', '科技有限公司', '公司简介', 0);
 
 -- ----------------------------
 -- Table structure for jobs

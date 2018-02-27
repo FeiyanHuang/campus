@@ -15,6 +15,7 @@ while($row=$result->fetch(1)) {
   $note['address']=$row['address'];
   $note['type']=$row['type'];
   $note['content']=$row['content'];
+  $note['disable']=$row['disable'];
 //放到二维数组里
   $notes[$i++]=$note;
 }
