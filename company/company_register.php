@@ -10,7 +10,7 @@ $address=$_GET['address'];
 $type=$_GET['type'];
 $content=$_GET['content'];
 require('../conn.php');
-$sql="insert into companys(company_name,password,boss,tel,email,address,type,content) values(?,?,?,?,?,?,?,?)";
+$sql="insert into companys(company_name,password,boss,tel,email,address,type,c_content) values(?,?,?,?,?,?,?,?)";
 $stmt=$db->prepare($sql);
 $stmt->bindParam(1,$company_name);$stmt->bindParam(2,$password);
 $stmt->bindParam(3,$boss);$stmt->bindParam(4,$tel);$stmt->bindParam(5,$email);

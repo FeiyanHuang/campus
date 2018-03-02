@@ -25,7 +25,7 @@ if($result->rowCount()==0){
 		'email'=>$row['email'],
 		'address'=>$row['address'],
 		'type'=>$row['type'],
-		'content'=>$row['content'],
+		'content'=>$row['c_content'],
 		'disable'=>$row['disable']
 		);
 		// urldecode用于解决中文因为json格式输出变成编码的问题\u9ec4\u98de\u71d5

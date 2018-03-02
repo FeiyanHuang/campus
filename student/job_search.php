@@ -3,7 +3,7 @@ header('Access-Control-Allow-Origin:*');
 header('Content-Type:*');
 require('../conn.php');
 $search=$_GET['search'];
-$sql="Select * From jobs Where job_name like '%$search%'";
+$sql="Select * From jobs Where job_name like '%$search%' and status='1'";
 $result=$db->query($sql);
 // $row=$result->fetch(1);
 if($result->rowCount()==0){
@@ -20,7 +20,7 @@ if($result->rowCount()==0){
     $note['c_name']=$row['c_name'];
     $note['price']=$row['price'];
     $note['persons']=$row['persons'];
-    $note['content']=$row['content'];
+    $note['content']=$row['j_content'];
   //放到二维数组里
     $notes[$i++]=$note;
   }
