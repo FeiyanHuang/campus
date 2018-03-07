@@ -29,10 +29,11 @@
 header('Access-Control-Allow-Origin:*');
 header('Content-Type:*');
 require('../conn.php');
+$search=$_GET['search'];
 $num_rec_per_page=10;   // 每页显示数量
 if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };
 $start_from = ($page-1) * $num_rec_per_page;
-$sql = "SELECT * FROM jobs where status='1' LIMIT $start_from, $num_rec_per_page";
+$sql = "SELECT * FROM jobs where job_name like '%$search%' and status='1' LIMIT $start_from, $num_rec_per_page";
 // $rs_result = mysql_query ($sql); // 查询数据
 $result=$db->query($sql);
 if($result->rowCount()==0){
@@ -54,7 +55,7 @@ if($result->rowCount()==0){
   //放到二维数组里
     $notes[$i++]=$note;
   }
-  $sql="select count(*) as shuliang from jobs where status='1'";
+  $sql="select count(*) as shuliang from jobs where job_name like '%$search%' and status='1'";
   $result=$db->query($sql);
   $row=$result->fetch(1);
   $count=$row['shuliang'];    //这个就是查询语句的条数
