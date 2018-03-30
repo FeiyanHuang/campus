@@ -51,17 +51,33 @@ if($result->rowCount()==0){
 		$note['content']=$row['j_content'];
 		$note['persons']=$row['persons'];
 		$note['c_name']=$row['c_name'];
+		$note['date_time']=$row['date_time'];
 		$note['status']=$row['status'];
   //放到二维数组里
     $notes[$i++]=$note;
   }
+	// $notes=rsort($notes['date_time']);
+	# 我们转成时间戳。方便后面比较（如果查出已经是那就不用转换了）
+	// foreach ($data as $k=>$v){
+  //   $data[$k]['time'] = strtotime($v['date']);
+	// }
+	//
+	# 把需要根据排序字段的值，放入一个数组中
+	foreach ($notes as $k=>$v){
+    	$id[$k]   = $v['id'];
+    	$time[$k] = $v['time'];
+		}
+
+	# 按时间降序排序（time字段）
+	array_multisort($time,SORT_NUMERIC,SORT_DESC,$id,SORT_NUMERIC,SORT_DESC,$notes);
   $sql="select count(*) as shuliang from jobs";
   $result=$db->query($sql);
   $row=$result->fetch(1);
   $count=$row['shuliang'];    //这个就是查询语句的条数
   $notes=array(
     'count' =>$count ,
-    'jobs' =>$notes ,
+		// 'jobs' =>$notes,
+    'jobs' =>$notes,
   );
   echo urldecode(json_encode($notes));
 }
