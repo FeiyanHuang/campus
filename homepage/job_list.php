@@ -21,6 +21,10 @@ if($result->rowCount()==0){
     $note['price']=$row['price'];
     $note['persons']=$row['persons'];
     $note['content']=$row['j_content'];
+		$note['education']=$row['education'];
+		$note['j_address']=$row['j_address'];
+		$note['c_name']=$row['c_name'];
+		$note['date_time']=$row['date_time'];
   //放到二维数组里
     $notes[$i++]=$note;
   }

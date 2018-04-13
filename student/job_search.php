@@ -48,11 +48,15 @@ if($result->rowCount()==0){
   $note;$i=0; //初始化变量
   while($row=$result->fetch(1)) {
 		$note['id']=$row['id'];
-		$note['job_name']=$row['job_name'];
-		$note['price']=$row['price'];
-		$note['content']=$row['j_content'];
-		$note['persons']=$row['persons'];
+    $note['job_name']=$row['job_name'];
+    $note['c_name']=$row['c_name'];
+    $note['price']=$row['price'];
+    $note['persons']=$row['persons'];
+    $note['content']=$row['j_content'];
+		$note['education']=$row['education'];
+		$note['j_address']=$row['j_address'];
 		$note['c_name']=$row['c_name'];
+		$note['date_time']=$row['date_time'];
 		$note['status']=$row['status'];
   //放到二维数组里
     $notes[$i++]=$note;
